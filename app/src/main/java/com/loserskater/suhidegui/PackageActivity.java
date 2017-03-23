@@ -126,6 +126,8 @@ public class PackageActivity extends AppCompatActivity implements SearchView.OnQ
     @Override
     public boolean onQueryTextChange(String newText) {
         FragmentManager fm = getSupportFragmentManager();
+        //TODO: getFragments should only be called from com.android.support
+        //noinspection RestrictedApi
         for (Fragment frag : fm.getFragments()) {
             PackageFragment pf = (PackageFragment) frag;
             ((PackageAdapter) pf.getAdapter()).getFilter().filter(newText);
